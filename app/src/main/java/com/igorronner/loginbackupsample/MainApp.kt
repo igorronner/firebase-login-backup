@@ -1,0 +1,26 @@
+package com.igorronner.loginbackupsample
+
+import android.app.Application
+import android.content.Intent
+import com.igorronner.irloginbackup.init.IRLoginBackup
+import com.igorronner.irloginbackup.preferences.FirebasePreference
+import com.igorronner.irloginbackup.views.SignUpActivity
+
+
+class MainApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        IRLoginBackup.startInit("database", resources.getString(R.string.default_web_client_id))
+                .setColorPrimary(R.color.colorPrimary)
+                .setColorPrimaryDark(R.color.colorPrimaryDark)
+                .setColorAccent(R.color.colorAccent)
+//                .setLogo(R.drawable.logo_white)
+                .build()
+
+
+    }
+
+
+}

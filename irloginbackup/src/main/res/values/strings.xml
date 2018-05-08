@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Login</string>
+
+    <string name="progress_backup">Backup in progress</string>
+    <string name="backup_success">Backup successfully</string>
+    <string name="are_you_sure_logout">Are you sure you want logout?</string>
+    <string name="name">Name</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="password_confirm">Password Confirm</string>
+
+    <string name="signin">Sign In</string>
+    <string name="signin_google">Sign In with Google</string>
+    <string name="signup">Sign Up</string>
+    <string name="validate_password_size">Password must be at least four characters</string>
+    <string name="validate_password_match">Passwords do not match</string>
+    <string name="loading">Loading</string>
+    <string name="backup">Backup</string>
+    <string name="logout">Logout</string>
+    <string name="sync">Synchronizing</string>
+    <string name="error_backup">An error occurred while backing up</string>
+    <string name="need_internet">You don\'t have connection with internet</string>
+    <string name="error_login">Something wrong happened</string>
+    <string name="fill_required_fields">Fill the required fields </string>
+    <string name="already_account">Already have an account?</string>
+
+</resources>
