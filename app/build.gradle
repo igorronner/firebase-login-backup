@@ -29,7 +29,9 @@ android {
         }
         exclude module: 'httpclient'
     }
+
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -39,6 +41,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:animated-vector-drawable:27.1.1'
     implementation 'com.android.support:support-media-compat:27.1.1'
+    implementation 'com.google.android.gms:play-services-auth:15.0.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation project(':irloginbackup')
     testImplementation 'junit:junit:4.12'
