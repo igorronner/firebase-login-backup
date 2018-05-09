@@ -1,1 +1,2 @@
-include ':app', ':irloginbackup'
+include ':app'
+include ':irloginbackup'
