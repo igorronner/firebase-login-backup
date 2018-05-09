@@ -20,9 +20,6 @@ import com.igorronner.irloginbackup.models.FirebaseUser;
 import com.igorronner.irloginbackup.services.FirebaseAuthService;
 import com.igorronner.irloginbackup.utils.ConnectionUtil;
 
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
-
 public class SignUpActivity extends BaseActivity {
 
     private EditText editName;
@@ -53,6 +50,10 @@ public class SignUpActivity extends BaseActivity {
 
         ImageView logo = findViewById(R.id.logo);
         logo.setImageResource(ConfigUtil.LOGO);
+        if (ConfigUtil.LOGO > 0)
+            logo.setImageResource(ConfigUtil.LOGO);
+        else
+            logo.setVisibility(View.GONE);
 
         TextView alreadyAccount = findViewById(R.id.alreadyAccount);
         alreadyAccount.setTextColor(ContextCompat.getColor(this, ConfigUtil.COLOR_ACCENT));
@@ -81,12 +82,6 @@ public class SignUpActivity extends BaseActivity {
             }
         });
 
-        KeyboardVisibilityEvent.registerEventListener(this, new KeyboardVisibilityEventListener() {
-            @Override
-            public void onVisibilityChanged(boolean isOpen) {
-                scrollView.smoothScrollTo(0, linearLayout.getBottom());
-            }
-        });
 
     }
 

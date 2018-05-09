@@ -23,10 +23,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,9 +41,6 @@ import com.igorronner.irloginbackup.utils.BackupAndRestore;
 import com.igorronner.irloginbackup.utils.ConnectionUtil;
 import com.igorronner.irloginbackup.utils.MD5GenratorUtils;
 import com.igorronner.irloginbackup.utils.PermissionsUtils;
-
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import java.io.File;
 
@@ -81,7 +76,10 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         linearLayout = findViewById(R.id.linearLayout);
 
         ImageView logo = findViewById(R.id.logo);
-        logo.setImageResource(ConfigUtil.LOGO);
+        if (ConfigUtil.LOGO > 0)
+            logo.setImageResource(ConfigUtil.LOGO);
+        else
+            logo.setVisibility(View.GONE);
 
         scrollView.setBackgroundColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
         signIn.setTextColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
@@ -160,12 +158,6 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
             }
         });
 
-        KeyboardVisibilityEvent.registerEventListener(this, new KeyboardVisibilityEventListener() {
-            @Override
-            public void onVisibilityChanged(boolean isOpen) {
-                scrollView.smoothScrollTo(0, linearLayout.getBottom());
-            }
-        });
 
     }
 

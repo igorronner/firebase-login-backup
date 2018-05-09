@@ -3,10 +3,13 @@
     android:id="@+id/scrollView"
     style="@style/Theme.AppCompat.Light.NoActionBar"
     android:layout_width="match_parent"
+    android:paddingTop="84dp"
+    android:clipToPadding="false"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:focusable="true"
         android:focusableInTouchMode="true">
 
@@ -15,10 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </android.support.v7.widget.Toolbar>
-
         <ImageView
             android:id="@+id/logo"
-            android:src="@mipmap/ic_launcher"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
             android:layout_width="150dp"
@@ -104,29 +105,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/alreadyAccount"
+                android:text="@string/already_account"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/signIn"
+                android:background="?selectableItemBackground"
+                android:padding="16dp"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal"
+                android:text="@string/signin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/alreadyAccount"
-                    android:text="@string/already_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/signIn"
-                    android:background="?selectableItemBackground"
-                    android:padding="16dp"
-                    android:textAllCaps="true"
-                    android:textColor="@android:color/white"
-                    android:gravity="center_horizontal"
-                    android:text="@string/signin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
-
     </RelativeLayout>
 
 </ScrollView>

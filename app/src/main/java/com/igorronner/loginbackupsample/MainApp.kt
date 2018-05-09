@@ -16,7 +16,7 @@ class MainApp : Application() {
                 .setColorPrimary(R.color.colorPrimary)
                 .setColorPrimaryDark(R.color.colorPrimaryDark)
                 .setColorAccent(R.color.colorAccent)
-//                .setLogo(R.drawable.logo_white)
+                .setLogo(R.mipmap.ic_launcher)
                 .build()
 
 

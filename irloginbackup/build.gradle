@@ -48,7 +48,6 @@ dependencies {
     api 'com.google.firebase:firebase-auth:15.1.0'
     api 'com.google.firebase:firebase-storage:15.0.2'
     api 'com.google.android.gms:play-services-auth:15.0.1'
-    api 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
     api 'com.android.support:support-annotations:27.1.1'
 
     testImplementation 'junit:junit:4.12'
