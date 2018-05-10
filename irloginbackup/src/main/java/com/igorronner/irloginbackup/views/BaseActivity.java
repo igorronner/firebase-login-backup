@@ -22,7 +22,6 @@ import com.igorronner.irloginbackup.utils.PermissionsUtils;
 
 public class BaseActivity extends AppCompatActivity{
 
-
     public ProgressDialog mProgressDialog;
 
     @Override

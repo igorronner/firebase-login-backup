@@ -1,13 +1,18 @@
 package com.igorronner.irloginbackup.init;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.widget.Toast;
 
 import com.igorronner.irloginbackup.R;
+import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.services.FirebaseAuthService;
 import com.igorronner.irloginbackup.services.FirebaseStorageService;
 import com.igorronner.irloginbackup.utils.ConnectionUtil;
 import com.igorronner.irloginbackup.utils.PermissionsUtils;
@@ -20,9 +25,13 @@ public class IRLoginBackup {
     }
 
     private IRLoginBackup(final IRLoginBackup.Builder builder){
-        ConfigUtil.COLOR_ACCENT = builder.colorAccent;
-        ConfigUtil.COLOR_PRIMARY = builder.colorPrimary;
-        ConfigUtil.COLOR_PRIMARY_DARK = builder.colorPrimaryDark;
+        if (builder.colorAccent>0)
+            ConfigUtil.COLOR_ACCENT = builder.colorAccent;
+        if (builder.colorPrimary>0)
+            ConfigUtil.COLOR_PRIMARY = builder.colorPrimary;
+        if (builder.colorPrimaryDark>0)
+            ConfigUtil.COLOR_PRIMARY_DARK = builder.colorPrimaryDark;
+
         ConfigUtil.LOGO = builder.logo;
         ConfigUtil.DATABASE_NAME = builder.dbName;
         ConfigUtil.GOOGLE_CLIENT_ID = builder.googleClientId;
@@ -98,5 +107,25 @@ public class IRLoginBackup {
                     .uploadBackupWithNotification();
         }
 
+    }
+
+    public static void logoutDialog(final Activity context){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FirebasePreference.setUuid(context, null);
+                FirebaseAuthService.getInstance(context).logout();
+            }
+        });
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.setTitle(R.string.are_you_sure_logout);
+
+        builder.show();
     }
 }

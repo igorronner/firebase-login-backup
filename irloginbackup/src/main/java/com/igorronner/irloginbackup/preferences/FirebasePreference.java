@@ -8,25 +8,16 @@ public class FirebasePreference {
 
     private static final String USER_ID = "uuid";
 
-    private static FirebasePreference instance;
-
-    public static synchronized FirebasePreference getInstance(){
-        if(instance==null)
-            instance = new FirebasePreference();
-
-        return instance;
+    public static boolean isLogged(Context context){
+        return getUserId(context) != null;
     }
 
-    private FirebasePreference(){
-
-    }
-
-    public void setUuid(Context context, String firebaseUserId){
+    public static void setUuid(Context context, String firebaseUserId){
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(USER_ID, firebaseUserId);
         editor.commit();
     }
-    public String getUserId(Context context){
+    public static String getUserId(Context context){
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPref.getString(USER_ID, null);
     }

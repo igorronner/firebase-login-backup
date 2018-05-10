@@ -204,7 +204,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
             Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
             updateBackup();
         } else {
-            FirebasePreference.getInstance().setUuid(SignInActivity.this, null);
+            FirebasePreference.setUuid(SignInActivity.this, null);
         }
     }
 
@@ -279,7 +279,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
                                     @Override
                                     public void onComplete(FirebaseUser result) {
                                         progressDialog.dismiss();
-                                        FirebasePreference.getInstance().setUuid(SignInActivity.this, result.getUuid());
+                                        FirebasePreference.setUuid(SignInActivity.this, result.getUuid());
                                         updateBackup();
                                     }
                                 });

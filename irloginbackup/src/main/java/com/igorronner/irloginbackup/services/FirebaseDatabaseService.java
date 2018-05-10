@@ -69,7 +69,7 @@ public class FirebaseDatabaseService {
     public void getBackups(final FirebaseDatabaseService.ServiceListener<List<FirebaseBackup>> serviceListener){
         database.getReference()
                 .child("users-backup")
-                .child(FirebasePreference.getInstance().getUserId(context))
+                .child(FirebasePreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(10)
                 .addValueEventListener(new ValueEventListener() {
@@ -99,7 +99,7 @@ public class FirebaseDatabaseService {
     public void getBackup(final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
                 .child("users-backup")
-                .child(FirebasePreference.getInstance().getUserId(context))
+                .child(FirebasePreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(1)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -128,7 +128,7 @@ public class FirebaseDatabaseService {
     public void getBackup(String backupId, final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
                 .child("users-backup")
-                .child(FirebasePreference.getInstance().getUserId(context))
+                .child(FirebasePreference.getUserId(context))
                 .child(backupId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -178,7 +178,7 @@ public class FirebaseDatabaseService {
                 .getInstance()
                 .getReference()
                 .child("users-backup")
-                .child(FirebasePreference.getInstance().getUserId(context))
+                .child(FirebasePreference.getUserId(context))
                 .child(uuid)
                 .setValue(firebaseBackup)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

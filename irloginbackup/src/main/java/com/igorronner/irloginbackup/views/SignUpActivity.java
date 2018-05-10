@@ -35,7 +35,7 @@ public class SignUpActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        setStatusBarColor(R.color.colorPrimaryDark);
+        setStatusBarColor(ConfigUtil.COLOR_PRIMARY_DARK);
 
         editName = (EditText) findViewById(R.id.editName);
         editEmail = (EditText) findViewById(R.id.editEmail);

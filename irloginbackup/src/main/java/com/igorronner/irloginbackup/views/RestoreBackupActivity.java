@@ -31,16 +31,12 @@ public class RestoreBackupActivity extends BaseActivity implements BackupRecycle
     private List<FirebaseBackup> list;
     private ProgressBar progressBar;
     private LinearLayout noDataLayout;
-    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restore_backup);
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
-        setActionBar((Toolbar) findViewById(R.id.toolbar));
-        setStatusBarColor(ConfigUtil.COLOR_PRIMARY_DARK);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         progressBar = findViewById(R.id.progressBar);

@@ -27,5 +27,7 @@
 
     <string name="restore_backups">Restore backups</string>
     <string name="restore_success">Restore successfully</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 
 </resources>

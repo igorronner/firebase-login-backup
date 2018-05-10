@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (FirebasePreference.getInstance().getUserId(this) == null) {
+        if (FirebasePreference.getUserId(this) == null) {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         restoreBackup.setOnClickListener { startActivity(Intent(this, RestoreBackupActivity::class.java)) }
 
         doBackup.setOnClickListener { IRLoginBackup.backup(this) }
+
+        logout.setOnClickListener { IRLoginBackup.logoutDialog(this) }
     }
 }

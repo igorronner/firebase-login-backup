@@ -1,7 +1,9 @@
 package com.igorronner.irloginbackup.services;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -11,6 +13,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.igorronner.irloginbackup.models.FirebaseUser;
 import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.views.SignInActivity;
 
 public class FirebaseAuthService {
 
@@ -80,7 +83,7 @@ public class FirebaseAuthService {
                             serviceListener.onError(task.getException().getMessage());
                             return;
                         }
-                        FirebasePreference.getInstance().setUuid(context, task.getResult().getUser().getUid());
+                        FirebasePreference.setUuid(context, task.getResult().getUser().getUid());
                         serviceListener.onAuthComplete();
 
                     }
@@ -89,5 +92,8 @@ public class FirebaseAuthService {
 
     public void logout(){
         mAuth.signOut();
+        context.startActivity(new Intent(context, SignInActivity.class));
+
+
     }
 }
