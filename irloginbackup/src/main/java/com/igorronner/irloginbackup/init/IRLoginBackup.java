@@ -128,4 +128,8 @@ public class IRLoginBackup {
 
         builder.show();
     }
+
+    public static boolean isLogged(Activity context){
+       return FirebasePreference.isLogged(context);
+    }
 }
