@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Login</string>
-
+    <string name="app_name">LoginBackup</string>
     <string name="progress_backup">Backup in progress</string>
     <string name="backup_success">Backup successfully</string>
     <string name="are_you_sure_logout">Are you sure you want logout?</string>

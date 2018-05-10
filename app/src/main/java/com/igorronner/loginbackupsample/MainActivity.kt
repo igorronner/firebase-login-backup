@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (IRLoginBackup.isLogged(this))
+        if (!IRLoginBackup.isLogged(this))
             startActivity(Intent(this, SignUpActivity::class.java))
 
         restoreBackup.setOnClickListener { startActivity(Intent(this, RestoreBackupActivity::class.java)) }

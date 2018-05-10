@@ -15,5 +15,4 @@
         <activity android:name=".views.RestoreBackupActivity"/>
     </application>
 
-
 </manifest>

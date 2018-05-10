@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">LoginBackup</string>
+
+    <string name="name">Nome</string>
+
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
+    <string name="email">E-mail</string>
+    <string name="are_you_sure_logout">Você deseja realmente sair?</string>
+    <string name="backup">Backup</string>
+    <string name="backup_success">Backup Realizado com sucesso</string>
+    <string name="error_backup">Ocorreu um erro ao realizar o backup</string>
+    <string name="error_login">Algo de errado aconteceu</string>
+    <string name="logout">Sair</string>
+    <string name="password">Senha</string>
+    <string name="password_confirm">Confirmar senha</string>
+    <string name="progress_backup">Backup em progresso</string>
+    <string name="sync">Sincronizando</string>
+    <string name="signin">Entrar</string>
+    <string name="signin_google">Entrar com Google</string>
+    <string name="signup">Criar uma conta</string>
+    <string name="need_internet">Você não tem conexão com a internet</string>
+    <string name="validate_password_match">As senhas não correspondem</string>
+    <string name="validate_password_size">A senha deve conter pelo menos quatro caracteres</string>
+    <string name="leave">Sair</string>
+    <string name="restore_backups">Restaurar backups</string>
+    <string name="restore_success">Backup restaurado com sucesso</string>
+    <string name="sem_dados">Sem dados</string>
+    <string name="already_account">Já tem um conta?</string>
+    <string name="loading">Carregando</string>
+    <string name="fill_required_fields">Preencha os campos requeridos</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="email">Correo electrónico</string>
+    <string name="fill_required_fields">Rellena los campos</string>
+    <string name="name">Nombre</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+
+    <string name="are_you_sure_logout">¿Está seguro qué quiere salir?</string>
+    <string name="backup">Copia de seguridad</string>
+    <string name="backup_success">copia de seguridad realizada con éxito</string>
+    <string name="progress_backup">Copia de seguridad en progreso</string>
+    <string name="password">Contraseña</string>
+    <string name="password_confirm">Confirmar contraseña</string>
+    <string name="need_internet">No hay conexión a internet</string>
+    <string name="logout">Salir</string>
+    <string name="loading">Cargando</string>
+    <string name="error_login">Ocurrió un error</string>
+    <string name="error_backup">Ocurrió un error al realizar copia de seguridad</string>
+    <string name="signin">Iniciar</string>
+    <string name="signin_google">Iniciar sesión</string>
+    <string name="signup">Crear una cuenta</string>
+    <string name="sync">Sincronizando</string>
+    <string name="validate_password_match">Las contraseñas no coinciden</string>
+    <string name="validate_password_size">La contraseña debe tener al menos cuatro caracteres</string>
+    <string name="leave">Salir</string>
+    <string name="restore_backups">Restaurar cópia de seguridad</string>
+    <string name="restore_success">Cópia de seguridad restaurada con éxito</string>
+    <string name="app_name">LoginBackup</string>
+    <string name="app_name">LoginBackup</string>
+</resources>
