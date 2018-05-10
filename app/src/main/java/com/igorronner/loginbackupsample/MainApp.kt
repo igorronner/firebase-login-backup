@@ -11,8 +11,10 @@ class MainApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //Just for create db file
+        DatabaseOpenHelper(this)
 
-        IRLoginBackup.startInit("database", resources.getString(R.string.default_web_client_id))
+        IRLoginBackup.startInit(DatabaseOpenHelper.DATABASE_NAME, resources.getString(R.string.default_web_client_id))
                 .setColorPrimary(R.color.colorPrimary)
                 .setColorPrimaryDark(R.color.colorPrimaryDark)
                 .setColorAccent(R.color.colorAccent)

@@ -107,7 +107,11 @@ public class FirebaseStorageService extends NotificationCompat {
                 try {
                     file = BackupAndRestore.exportDB(context);
                 }catch (Exception e){
-                    e.printStackTrace();
+                    if (uploadServiceListener!=null)
+                        uploadServiceListener.onError();
+
+
+                    return null;
                 }
                 if (file != null) {
                     try {
@@ -184,6 +188,9 @@ public class FirebaseStorageService extends NotificationCompat {
                         if (uploadServiceListener!=null)
                             uploadServiceListener.onError();
                     }
+                } else {
+                    if (uploadServiceListener!=null)
+                        uploadServiceListener.onError();
                 }
 
                 return null;

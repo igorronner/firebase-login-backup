@@ -23,5 +23,9 @@
     <string name="error_login">Something wrong happened</string>
     <string name="fill_required_fields">Fill the required fields </string>
     <string name="already_account">Already have an account?</string>
+    <string name="sem_dados">No data</string>
+
+    <string name="restore_backups">Restore backups</string>
+    <string name="restore_success">Restore successfully</string>
 
 </resources>

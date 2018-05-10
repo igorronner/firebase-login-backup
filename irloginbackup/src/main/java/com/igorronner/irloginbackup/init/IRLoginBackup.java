@@ -1,7 +1,17 @@
 package com.igorronner.irloginbackup.init;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.widget.Toast;
+
+import com.igorronner.irloginbackup.R;
+import com.igorronner.irloginbackup.services.FirebaseStorageService;
+import com.igorronner.irloginbackup.utils.ConnectionUtil;
+import com.igorronner.irloginbackup.utils.PermissionsUtils;
+import com.igorronner.irloginbackup.views.BaseActivity;
 
 public class IRLoginBackup {
 
@@ -57,6 +67,35 @@ public class IRLoginBackup {
         public IRLoginBackup build(){
             this.IRLoginBackup = new IRLoginBackup(this);
             return this.IRLoginBackup;
+        }
+
+    }
+
+    public static void backup(final Activity context){
+        if (!ConnectionUtil.isConnected(context)){
+            Toast.makeText(context, R.string.need_internet, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (PermissionsUtils.isStoragePermissionGranted(context)) {
+            final ProgressDialog progressDialog = new ProgressDialog(context);
+            progressDialog.setMessage(context.getString(R.string.loading));
+            progressDialog.show();
+            FirebaseStorageService
+                    .getInstance(context)
+                    .setUploadServiceListener(new FirebaseStorageService.UploadServiceListener() {
+                        @Override
+                        public void onUploadComplete() {
+                            progressDialog.cancel();
+                            Toast.makeText(context, R.string.backup_success, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onError() {
+                            Toast.makeText(context, R.string.error_backup, Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .uploadBackupWithNotification();
         }
 
     }

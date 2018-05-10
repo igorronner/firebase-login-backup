@@ -31,25 +31,21 @@ public class BackupAndRestore {
         }
     }
 
-    public static File exportDB(Context context) {
-        try {
-            File sd = Environment.getExternalStorageDirectory();
+    public static File exportDB(Context context) throws Exception{
+        File sd = Environment.getExternalStorageDirectory();
 
-            if (sd.canWrite()) {
-                String backupDBPath = String.format("%s.bak", ConfigUtil.DATABASE_NAME);
-                File currentDB = context.getDatabasePath(ConfigUtil.DATABASE_NAME);
-                File backupDB = new File(sd, backupDBPath);
+        if (sd.canWrite()) {
+            String backupDBPath = String.format("%s.bak", ConfigUtil.DATABASE_NAME);
+            File currentDB = context.getDatabasePath(ConfigUtil.DATABASE_NAME);
+            File backupDB = new File(sd, backupDBPath);
 
-                FileChannel src = new FileInputStream(currentDB).getChannel();
-                FileChannel dst = new FileOutputStream(backupDB).getChannel();
-                dst.transferFrom(src, 0, src.size());
-                src.close();
-                dst.close();
+            FileChannel src = new FileInputStream(currentDB).getChannel();
+            FileChannel dst = new FileOutputStream(backupDB).getChannel();
+            dst.transferFrom(src, 0, src.size());
+            src.close();
+            dst.close();
 
-                return backupDB;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return backupDB;
         }
 
         return null;
