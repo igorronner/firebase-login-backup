@@ -17,6 +17,8 @@ import com.igorronner.irloginbackup.services.FirebaseStorageService;
 import com.igorronner.irloginbackup.utils.ConnectionUtil;
 import com.igorronner.irloginbackup.utils.PermissionsUtils;
 import com.igorronner.irloginbackup.views.BaseActivity;
+import com.igorronner.irloginbackup.views.RestoreBackupActivity;
+import com.igorronner.irloginbackup.views.SignUpActivity;
 
 public class IRLoginBackup {
 
@@ -25,12 +27,12 @@ public class IRLoginBackup {
     }
 
     private IRLoginBackup(final IRLoginBackup.Builder builder){
-        if (builder.colorAccent>0)
-            ConfigUtil.COLOR_ACCENT = builder.colorAccent;
-        if (builder.colorPrimary>0)
-            ConfigUtil.COLOR_PRIMARY = builder.colorPrimary;
-        if (builder.colorPrimaryDark>0)
-            ConfigUtil.COLOR_PRIMARY_DARK = builder.colorPrimaryDark;
+//        if (builder.colorAccent>0)
+//            ConfigUtil.COLOR_ACCENT = builder.colorAccent;
+//        if (builder.colorPrimary>0)
+//            ConfigUtil.COLOR_PRIMARY = builder.colorPrimary;
+//        if (builder.colorPrimaryDark>0)
+//            ConfigUtil.COLOR_PRIMARY_DARK = builder.colorPrimaryDark;
 
         ConfigUtil.LOGO = builder.logo;
         ConfigUtil.DATABASE_NAME = builder.dbName;
@@ -38,9 +40,9 @@ public class IRLoginBackup {
     }
 
     public static class Builder {
-        @ColorRes private int colorPrimary;
-        @ColorRes private int colorPrimaryDark;
-        @ColorRes private int colorAccent;
+//        @ColorRes private int colorPrimary;
+//        @ColorRes private int colorPrimaryDark;
+//        @ColorRes private int colorAccent;
         @DrawableRes private int logo;
         private String googleClientId;
         private String dbName;
@@ -52,20 +54,20 @@ public class IRLoginBackup {
         }
 
 
-        public Builder setColorPrimary(@ColorRes int colorPrimary){
-            this.colorPrimary = colorPrimary;
-            return this;
-        }
-
-        public Builder setColorPrimaryDark(@ColorRes int colorPrimaryDark){
-            this.colorPrimaryDark = colorPrimaryDark;
-            return this;
-        }
-
-        public Builder setColorAccent(@ColorRes int colorAccent){
-            this.colorAccent = colorAccent;
-            return this;
-        }
+//        public Builder setColorPrimary(@ColorRes int colorPrimary){
+//            this.colorPrimary = colorPrimary;
+//            return this;
+//        }
+//
+//        public Builder setColorPrimaryDark(@ColorRes int colorPrimaryDark){
+//            this.colorPrimaryDark = colorPrimaryDark;
+//            return this;
+//        }
+//
+//        public Builder setColorAccent(@ColorRes int colorAccent){
+//            this.colorAccent = colorAccent;
+//            return this;
+//        }
 
         public Builder setLogo(@DrawableRes int logo){
             this.logo = logo;
@@ -130,6 +132,14 @@ public class IRLoginBackup {
     }
 
     public static boolean isLogged(Activity context){
-       return FirebasePreference.isLogged(context);
+        return FirebasePreference.isLogged(context);
+    }
+
+    public static void openRestoreBackup(Activity context){
+        context.startActivity(new Intent(context, RestoreBackupActivity.class));
+    }
+
+    public static void openSignUp(Activity context){
+        context.startActivity(new Intent(context, SignUpActivity.class));
     }
 }

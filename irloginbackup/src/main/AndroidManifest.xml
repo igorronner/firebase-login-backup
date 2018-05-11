@@ -12,7 +12,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".views.SignInActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".views.RestoreBackupActivity"/>
+        <activity android:name=".views.RestoreBackupActivity" />
     </application>
 
 </manifest>

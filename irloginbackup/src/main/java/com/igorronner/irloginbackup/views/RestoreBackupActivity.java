@@ -37,7 +37,7 @@ public class RestoreBackupActivity extends BaseActivity implements BackupRecycle
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restore_backup);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        setTitle(R.string.restore_backups);
         recyclerView = (RecyclerView) findViewById(R.id.recycleView);
         progressBar = findViewById(R.id.progressBar);
         noDataLayout = findViewById(R.id.noData);
