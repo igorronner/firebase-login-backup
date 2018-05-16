@@ -28,5 +28,6 @@
     <string name="restore_success">Restore successfully</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="leave">Leave</string>
 
 </resources>

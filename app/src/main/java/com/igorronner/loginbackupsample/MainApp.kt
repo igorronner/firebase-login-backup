@@ -15,9 +15,6 @@ class MainApp : Application() {
         DatabaseOpenHelper(this)
 
         IRLoginBackup.startInit(DatabaseOpenHelper.DATABASE_NAME, resources.getString(R.string.default_web_client_id))
-//                .setColorPrimary(R.color.colorPrimary)
-//                .setColorPrimaryDark(R.color.colorPrimaryDark)
-//                .setColorAccent(R.color.colorAccent)
                 .setLogo(R.mipmap.ic_launcher)
                 .build()
 
