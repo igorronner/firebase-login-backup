@@ -27,7 +27,7 @@
     <string name="restore_backups">Restaurar backups</string>
     <string name="restore_success">Backup restaurado com sucesso</string>
     <string name="sem_dados">Sem dados</string>
-    <string name="already_account">Já tem um conta?</string>
+    <string name="already_account">Já tem uma conta?</string>
     <string name="loading">Carregando</string>
     <string name="fill_required_fields">Preencha os campos requeridos</string>
 </resources>
