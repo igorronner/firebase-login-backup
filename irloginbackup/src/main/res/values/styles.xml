@@ -2,7 +2,7 @@
 <resources>
 
 
-    <style name="TextLabelLogin" parent="TextAppearance.AppCompat">
+    <style name="TextLabelLogin" parent="ThemeOverlay.AppCompat.Light">
         <!-- Hint color and label color in FALSE state -->
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@color/white_70</item>
