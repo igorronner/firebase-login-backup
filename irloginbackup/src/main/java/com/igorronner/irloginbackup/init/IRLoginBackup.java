@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.widget.Toast;
@@ -27,16 +28,11 @@ public class IRLoginBackup {
     }
 
     private IRLoginBackup(final IRLoginBackup.Builder builder){
-//        if (builder.colorAccent>0)
-//            ConfigUtil.COLOR_ACCENT = builder.colorAccent;
-//        if (builder.colorPrimary>0)
-//            ConfigUtil.COLOR_PRIMARY = builder.colorPrimary;
-//        if (builder.colorPrimaryDark>0)
-//            ConfigUtil.COLOR_PRIMARY_DARK = builder.colorPrimaryDark;
 
         ConfigUtil.LOGO = builder.logo;
         ConfigUtil.DATABASE_NAME = builder.dbName;
         ConfigUtil.GOOGLE_CLIENT_ID = builder.googleClientId;
+        ConfigUtil.NODE_NAME = builder.nodeName;
     }
 
     public static class Builder {
@@ -46,6 +42,7 @@ public class IRLoginBackup {
         @DrawableRes private int logo;
         private String googleClientId;
         private String dbName;
+        private String nodeName;
         private IRLoginBackup IRLoginBackup;
 
         public Builder(String dbName, String googleClientId){
@@ -54,26 +51,15 @@ public class IRLoginBackup {
         }
 
 
-//        public Builder setColorPrimary(@ColorRes int colorPrimary){
-//            this.colorPrimary = colorPrimary;
-//            return this;
-//        }
-//
-//        public Builder setColorPrimaryDark(@ColorRes int colorPrimaryDark){
-//            this.colorPrimaryDark = colorPrimaryDark;
-//            return this;
-//        }
-//
-//        public Builder setColorAccent(@ColorRes int colorAccent){
-//            this.colorAccent = colorAccent;
-//            return this;
-//        }
-
         public Builder setLogo(@DrawableRes int logo){
             this.logo = logo;
             return this;
         }
 
+        public Builder setNodeName(String nodeName){
+            this.nodeName = nodeName;
+            return this;
+        }
 
         public IRLoginBackup build(){
             this.IRLoginBackup = new IRLoginBackup(this);

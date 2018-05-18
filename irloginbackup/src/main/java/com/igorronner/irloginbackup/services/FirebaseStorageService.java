@@ -120,7 +120,8 @@ public class FirebaseStorageService extends NotificationCompat {
                                 .setContentText(file.getName())
                                 .setSmallIcon(R.drawable.cloud_upload);
                         final String uuid = UUID.randomUUID().toString();
-                        final String dir = FirebasePreference.getUserId(context) + File.separator + "backups" + File.separator + uuid + File.separator + file.getName();
+                        String nodeName = ConfigUtil.NODE_NAME == null || ConfigUtil.NODE_NAME.isEmpty() ? "backups" : ConfigUtil.NODE_NAME;
+                        final String dir = FirebasePreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
                         StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 
                         StorageReference storageReference = storageRef.child(dir);
@@ -213,7 +214,9 @@ public class FirebaseStorageService extends NotificationCompat {
         try {
 
             final String uuid = UUID.randomUUID().toString();
-            final String dir = FirebasePreference.getUserId(context) + File.separator + "backups" + File.separator + uuid + File.separator + file.getName();
+            String nodeName = ConfigUtil.NODE_NAME == null || ConfigUtil.NODE_NAME.isEmpty() ? "backups" : ConfigUtil.NODE_NAME;
+
+            final String dir = FirebasePreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
             StorageReference storageRef =FirebaseStorage.getInstance().getReference();
             StorageReference storageReference = storageRef.child(dir);
 

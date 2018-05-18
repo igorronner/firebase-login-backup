@@ -11,6 +11,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.igorronner.irloginbackup.init.ConfigUtil;
 import com.igorronner.irloginbackup.models.FirebaseBackup;
 import com.igorronner.irloginbackup.models.FirebaseUser;
 import com.igorronner.irloginbackup.preferences.FirebasePreference;
@@ -68,7 +69,7 @@ public class FirebaseDatabaseService {
 
     public void getBackups(final FirebaseDatabaseService.ServiceListener<List<FirebaseBackup>> serviceListener){
         database.getReference()
-                .child("users-backup")
+                .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
                 .child(FirebasePreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(10)
@@ -98,7 +99,7 @@ public class FirebaseDatabaseService {
     }
     public void getBackup(final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
-                .child("users-backup")
+                .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
                 .child(FirebasePreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(1)
@@ -127,7 +128,7 @@ public class FirebaseDatabaseService {
 
     public void getBackup(String backupId, final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
-                .child("users-backup")
+                .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
                 .child(FirebasePreference.getUserId(context))
                 .child(backupId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -177,7 +178,7 @@ public class FirebaseDatabaseService {
         FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child("users-backup")
+                .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
                 .child(FirebasePreference.getUserId(context))
                 .child(uuid)
                 .setValue(firebaseBackup)
