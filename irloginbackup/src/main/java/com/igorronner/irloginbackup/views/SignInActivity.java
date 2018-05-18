@@ -131,7 +131,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
                 }
 
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken("708337287617-7kbus9cimuh7v8in1hqq5mvrl8qoskpe.apps.googleusercontent.com")
+                        .requestIdToken(ConfigUtil.GOOGLE_CLIENT_ID)
                         .requestEmail()
                         .build();
 
