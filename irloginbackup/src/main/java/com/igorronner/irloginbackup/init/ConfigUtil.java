@@ -10,6 +10,7 @@ public class ConfigUtil {
     public static String  DATABASE_NAME = "db";
     public static String  GOOGLE_CLIENT_ID = null;
     public static String NODE_NAME = null;
+    public static boolean LOGIN_OPTIONAL = true;
 
     public static @ColorRes int COLOR_PRIMARY = R.color.colorPrimary;
     public static @ColorRes int COLOR_PRIMARY_DARK = R.color.colorPrimaryDark;

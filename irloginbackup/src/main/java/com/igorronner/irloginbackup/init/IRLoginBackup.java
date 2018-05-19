@@ -34,6 +34,8 @@ public class IRLoginBackup {
         ConfigUtil.DATABASE_NAME = builder.dbName;
         ConfigUtil.GOOGLE_CLIENT_ID = builder.googleClientId;
         ConfigUtil.NODE_NAME = builder.nodeName;
+        ConfigUtil.LOGIN_OPTIONAL = builder.loginOptional;
+
     }
 
     public static class Builder {
@@ -44,6 +46,7 @@ public class IRLoginBackup {
         private String googleClientId;
         private String dbName;
         private String nodeName;
+        private boolean loginOptional;
         private IRLoginBackup IRLoginBackup;
 
         public Builder(String dbName, String googleClientId){
@@ -57,6 +60,10 @@ public class IRLoginBackup {
             return this;
         }
 
+        public Builder setLoginOptional(boolean loginOptional){
+            this.loginOptional = loginOptional;
+            return this;
+        }
         public Builder setNodeName(String nodeName){
             this.nodeName = nodeName;
             return this;
