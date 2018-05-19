@@ -130,7 +130,9 @@ public class SignUpActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        ActivityCompat.finishAffinity(this);
+        if (ConfigUtil.LOGIN_OPTIONAL)
+            finish();
+        else
+            ActivityCompat.finishAffinity(this);
     }
 }

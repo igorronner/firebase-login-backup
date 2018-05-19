@@ -297,7 +297,9 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        ActivityCompat.finishAffinity(this);
+        if (ConfigUtil.LOGIN_OPTIONAL)
+            finish();
+        else
+            ActivityCompat.finishAffinity(this);
     }
 }
