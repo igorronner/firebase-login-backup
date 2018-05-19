@@ -19,6 +19,7 @@ import com.igorronner.irloginbackup.utils.ConnectionUtil;
 import com.igorronner.irloginbackup.utils.PermissionsUtils;
 import com.igorronner.irloginbackup.views.BaseActivity;
 import com.igorronner.irloginbackup.views.RestoreBackupActivity;
+import com.igorronner.irloginbackup.views.SignInActivity;
 import com.igorronner.irloginbackup.views.SignUpActivity;
 
 public class IRLoginBackup {
@@ -97,13 +98,20 @@ public class IRLoginBackup {
 
     }
 
-    public static void logoutDialog(final Activity context){
+    public interface LogoutListener {
+        void onComplete();
+    }
+
+    public static void logoutDialog(final Activity context, final boolean keepCurrentActivity, final LogoutListener logoutListener){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FirebasePreference.setUuid(context, null);
-                FirebaseAuthService.getInstance(context).logout();
+                FirebaseAuthService.getInstance(context).logout(keepCurrentActivity);
+                if (logoutListener!=null)
+                    logoutListener.onComplete();
+
             }
         });
         builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -117,6 +125,11 @@ public class IRLoginBackup {
         builder.show();
     }
 
+    public static void logoutDialog(final Activity context){
+        logoutDialog(context, false, null);
+    }
+
+
     public static boolean isLogged(Activity context){
         return FirebasePreference.isLogged(context);
     }
@@ -128,4 +141,9 @@ public class IRLoginBackup {
     public static void openSignUp(Activity context){
         context.startActivity(new Intent(context, SignUpActivity.class));
     }
+
+    public static void openSigIn(Activity context){
+        context.startActivity(new Intent(context, SignInActivity.class));
+    }
+
 }

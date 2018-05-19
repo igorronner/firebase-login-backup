@@ -90,10 +90,10 @@ public class FirebaseAuthService {
                 });
     }
 
-    public void logout(){
+    public void logout(boolean keepCurrentActivity){
         mAuth.signOut();
-        context.startActivity(new Intent(context, SignInActivity.class));
-
-
+        if (!keepCurrentActivity)
+            context.startActivity(new Intent(context, SignInActivity.class));
     }
+
 }

@@ -11,6 +11,12 @@
     tools:context="com.igorronner.loginbackupsample.MainActivity">
 
     <Button
+        android:id="@+id/signIn"
+        android:text="@string/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:id="@+id/doBackup"
         android:text="@string/backup"
         android:layout_width="match_parent"

@@ -154,6 +154,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
