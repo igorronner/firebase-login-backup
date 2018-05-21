@@ -19,7 +19,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.igorronner.irloginbackup.R;
 import com.igorronner.irloginbackup.init.ConfigUtil;
-import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.preferences.MainPreference;
 import com.igorronner.irloginbackup.utils.BackupAndRestore;
 
 import java.io.File;
@@ -96,7 +96,7 @@ public class FirebaseStorageService extends NotificationCompat {
 
     public void uploadBackupWithNotification(){
 
-        if (FirebasePreference.getUserId(context) == null)
+        if (MainPreference.getUserId(context) == null)
             return;
 
         new AsyncTask<Void, Void, Void>() {
@@ -121,7 +121,7 @@ public class FirebaseStorageService extends NotificationCompat {
                                 .setSmallIcon(R.drawable.cloud_upload);
                         final String uuid = UUID.randomUUID().toString();
                         String nodeName = ConfigUtil.NODE_NAME == null || ConfigUtil.NODE_NAME.isEmpty() ? "backups" : ConfigUtil.NODE_NAME;
-                        final String dir = FirebasePreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
+                        final String dir = MainPreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
                         StorageReference storageRef = FirebaseStorage.getInstance().getReference();
 
                         StorageReference storageReference = storageRef.child(dir);
@@ -216,7 +216,7 @@ public class FirebaseStorageService extends NotificationCompat {
             final String uuid = UUID.randomUUID().toString();
             String nodeName = ConfigUtil.NODE_NAME == null || ConfigUtil.NODE_NAME.isEmpty() ? "backups" : ConfigUtil.NODE_NAME;
 
-            final String dir = FirebasePreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
+            final String dir = MainPreference.getUserId(context) + File.separator + nodeName + File.separator + uuid + File.separator + file.getName();
             StorageReference storageRef =FirebaseStorage.getInstance().getReference();
             StorageReference storageReference = storageRef.child(dir);
 

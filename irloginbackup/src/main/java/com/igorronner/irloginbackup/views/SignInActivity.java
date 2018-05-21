@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,9 +30,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.igorronner.irloginbackup.R;
 import com.igorronner.irloginbackup.init.ConfigUtil;
+import com.igorronner.irloginbackup.init.IRLoginBackup;
 import com.igorronner.irloginbackup.models.FirebaseBackup;
 import com.igorronner.irloginbackup.models.FirebaseUser;
-import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.preferences.MainPreference;
 import com.igorronner.irloginbackup.services.FirebaseAuthService;
 import com.igorronner.irloginbackup.services.FirebaseDatabaseService;
 import com.igorronner.irloginbackup.services.FirebaseStorageService;
@@ -72,6 +72,10 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         signInGoogle = (Button) findViewById(R.id.signInGoogle);
         signUp = (TextView) findViewById(R.id.signUp);
         scrollView = findViewById(R.id.scrollView);
+
+        if (!MainPreference.alreadyShownTutorialBackup(this)){
+            IRLoginBackup.showTutorialBackup(this);
+        }
 
         ImageView logo = findViewById(R.id.logo);
         if (ConfigUtil.LOGO > 0)
@@ -203,7 +207,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
             Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
             updateBackup();
         } else {
-            FirebasePreference.setUuid(SignInActivity.this, null);
+            MainPreference.setUuid(SignInActivity.this, null);
         }
     }
 
@@ -276,7 +280,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
                                     @Override
                                     public void onComplete(FirebaseUser result) {
                                         progressDialog.dismiss();
-                                        FirebasePreference.setUuid(SignInActivity.this, result.getUuid());
+                                        MainPreference.setUuid(SignInActivity.this, result.getUuid());
                                         updateBackup();
                                     }
                                 });

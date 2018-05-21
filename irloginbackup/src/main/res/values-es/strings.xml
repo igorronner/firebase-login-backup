@@ -29,5 +29,5 @@
     <string name="leave">Salir</string>
     <string name="restore_backups">Restaurar cópia de seguridad</string>
     <string name="restore_success">Cópia de seguridad restaurada con éxito</string>
-
+    <string name="go_it">Lo consiguió</string>
 </resources>

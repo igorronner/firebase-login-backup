@@ -30,5 +30,6 @@
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="leave">Leave</string>
-
+    <string name="go_it">Got It</string>
+    <string name="dialog_tutorial_backup">By signing in with your account you apply to you to make backups in the cloud.</string>
 </resources>

@@ -3,21 +3,19 @@ package com.igorronner.irloginbackup.init;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.view.View;
 import android.widget.Toast;
 
 import com.igorronner.irloginbackup.R;
-import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.preferences.MainPreference;
 import com.igorronner.irloginbackup.services.FirebaseAuthService;
 import com.igorronner.irloginbackup.services.FirebaseStorageService;
 import com.igorronner.irloginbackup.utils.ConnectionUtil;
 import com.igorronner.irloginbackup.utils.PermissionsUtils;
-import com.igorronner.irloginbackup.views.BaseActivity;
 import com.igorronner.irloginbackup.views.RestoreBackupActivity;
 import com.igorronner.irloginbackup.views.SignInActivity;
 import com.igorronner.irloginbackup.views.SignUpActivity;
@@ -114,7 +112,7 @@ public class IRLoginBackup {
         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                FirebasePreference.setUuid(context, null);
+                MainPreference.setUuid(context, null);
                 FirebaseAuthService.getInstance(context).logout(keepCurrentActivity);
                 if (logoutListener!=null)
                     logoutListener.onComplete();
@@ -132,13 +130,37 @@ public class IRLoginBackup {
         builder.show();
     }
 
+    public static void showTutorialBackup(final Activity context){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        View view = context.getLayoutInflater().inflate(R.layout.dialog_tutorial_backup, null);
+        builder.setPositiveButton(R.string.go_it, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainPreference.setShownTutorialBackup(context, true);
+                    }
+                })
+                .setView(view);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    MainPreference.setShownTutorialBackup(context, true);
+                }
+            });
+        }
+
+        builder.show();
+    }
+
     public static void logoutDialog(final Activity context){
         logoutDialog(context, false, null);
     }
 
 
     public static boolean isLogged(Activity context){
-        return FirebasePreference.isLogged(context);
+        return MainPreference.isLogged(context);
     }
 
     public static void openRestoreBackup(Activity context){

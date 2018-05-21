@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.igorronner.irloginbackup.init.ConfigUtil;
 import com.igorronner.irloginbackup.models.FirebaseBackup;
 import com.igorronner.irloginbackup.models.FirebaseUser;
-import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.preferences.MainPreference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -70,7 +70,7 @@ public class FirebaseDatabaseService {
     public void getBackups(final FirebaseDatabaseService.ServiceListener<List<FirebaseBackup>> serviceListener){
         database.getReference()
                 .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
-                .child(FirebasePreference.getUserId(context))
+                .child(MainPreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(10)
                 .addValueEventListener(new ValueEventListener() {
@@ -100,7 +100,7 @@ public class FirebaseDatabaseService {
     public void getBackup(final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
                 .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
-                .child(FirebasePreference.getUserId(context))
+                .child(MainPreference.getUserId(context))
                 .orderByChild("created_at")
                 .limitToLast(1)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -129,7 +129,7 @@ public class FirebaseDatabaseService {
     public void getBackup(String backupId, final FirebaseDatabaseService.ServiceListener<FirebaseBackup> serviceListener){
         database.getReference()
                 .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
-                .child(FirebasePreference.getUserId(context))
+                .child(MainPreference.getUserId(context))
                 .child(backupId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -179,7 +179,7 @@ public class FirebaseDatabaseService {
                 .getInstance()
                 .getReference()
                 .child(ConfigUtil.NODE_NAME == null  || ConfigUtil.NODE_NAME.isEmpty() ? "users-backup" : ConfigUtil.NODE_NAME)
-                .child(FirebasePreference.getUserId(context))
+                .child(MainPreference.getUserId(context))
                 .child(uuid)
                 .setValue(firebaseBackup)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

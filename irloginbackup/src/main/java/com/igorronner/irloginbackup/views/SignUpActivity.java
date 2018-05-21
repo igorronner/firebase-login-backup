@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -33,7 +31,7 @@ import com.igorronner.irloginbackup.R;
 import com.igorronner.irloginbackup.init.ConfigUtil;
 import com.igorronner.irloginbackup.models.FirebaseBackup;
 import com.igorronner.irloginbackup.models.FirebaseUser;
-import com.igorronner.irloginbackup.preferences.FirebasePreference;
+import com.igorronner.irloginbackup.preferences.MainPreference;
 import com.igorronner.irloginbackup.services.FirebaseAuthService;
 import com.igorronner.irloginbackup.services.FirebaseDatabaseService;
 import com.igorronner.irloginbackup.services.FirebaseStorageService;
@@ -177,7 +175,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
             Log.v(TAG,"Permission: "+permissions[0]+ "was "+grantResults[0]);
             updateBackup();
         } else {
-            FirebasePreference.setUuid(this, null);
+            MainPreference.setUuid(this, null);
         }
     }
 
@@ -245,7 +243,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                                     @Override
                                     public void onComplete(FirebaseUser result) {
                                         progressDialog.dismiss();
-                                        FirebasePreference.setUuid(SignUpActivity.this, result.getUuid());
+                                        MainPreference.setUuid(SignUpActivity.this, result.getUuid());
                                         updateBackup();
                                     }
                                 });

@@ -1,10 +1,7 @@
 package com.igorronner.loginbackupsample
 
 import android.app.Application
-import android.content.Intent
 import com.igorronner.irloginbackup.init.IRLoginBackup
-import com.igorronner.irloginbackup.preferences.FirebasePreference
-import com.igorronner.irloginbackup.views.SignUpActivity
 
 
 class MainApp : Application() {
