@@ -20,6 +20,7 @@
     <string name="signin">Entrar</string>
     <string name="signin_google">Entrar com Google</string>
     <string name="signup">Criar uma conta</string>
+    <string name="signup_google">Continuar com Google</string>
     <string name="need_internet">Você não tem conexão com a internet</string>
     <string name="validate_password_match">As senhas não correspondem</string>
     <string name="validate_password_size">A senha deve conter pelo menos quatro caracteres</string>

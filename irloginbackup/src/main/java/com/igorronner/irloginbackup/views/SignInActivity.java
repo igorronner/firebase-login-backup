@@ -52,7 +52,6 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
     private TextView signUp;
     private Button signInGoogle;
     private ScrollView scrollView;
-    private LinearLayout linearLayout;
     private static final String TAG = SignInActivity.class.getName();
     private static final int RC_SIGN_IN = 9001;
 
@@ -73,7 +72,6 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         signInGoogle = (Button) findViewById(R.id.signInGoogle);
         signUp = (TextView) findViewById(R.id.signUp);
         scrollView = findViewById(R.id.scrollView);
-        linearLayout = findViewById(R.id.linearLayout);
 
         ImageView logo = findViewById(R.id.logo);
         if (ConfigUtil.LOGO > 0)
@@ -216,8 +214,6 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
-
-
 
     private boolean validateInputsEmpty(){
         return editEmail.getText().toString().isEmpty() ||

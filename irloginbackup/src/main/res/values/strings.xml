@@ -11,6 +11,7 @@
     <string name="signin">Sign In</string>
     <string name="signin_google">Sign In with Google</string>
     <string name="signup">Sign Up</string>
+    <string name="signup_google">Sign Up with Google</string>
     <string name="validate_password_size">Password must be at least four characters</string>
     <string name="validate_password_match">Passwords do not match</string>
     <string name="loading">Loading</string>

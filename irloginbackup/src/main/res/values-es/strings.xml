@@ -21,6 +21,7 @@
     <string name="error_backup">Ocurrió un error al realizar copia de seguridad</string>
     <string name="signin">Iniciar</string>
     <string name="signin_google">Iniciar sesión</string>
+    <string name="signup_google">Crear con Google</string>
     <string name="signup">Crear una cuenta</string>
     <string name="sync">Sincronizando</string>
     <string name="validate_password_match">Las contraseñas no coinciden</string>
