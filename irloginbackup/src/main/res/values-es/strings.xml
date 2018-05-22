@@ -30,4 +30,5 @@
     <string name="restore_backups">Restaurar cópia de seguridad</string>
     <string name="restore_success">Cópia de seguridad restaurada con éxito</string>
     <string name="go_it">Lo consiguió</string>
+    <string name="dialog_tutorial_backup">Al crear una cuenta, tu podrá realizar copias de seguridad de tus datos de forma segura y sincronizada en otros dispositivos.</string>
 </resources>

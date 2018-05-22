@@ -32,6 +32,5 @@
     <string name="loading">Carregando</string>
     <string name="fill_required_fields">Preencha os campos requeridos</string>
     <string name="go_it">Entendi</string>
-    <string name="news">News</string>
-    <string name="dialog_tutorial_backup">Ao entrar com sua conta o aplicativo permitirá você realizar backups na nuvem.</string>
+    <string name="dialog_tutorial_backup">Ao criar uma conta você poderá realizar backups de seus dados com segurança e sincronizar em outros dispositivos.</string>
 </resources>
