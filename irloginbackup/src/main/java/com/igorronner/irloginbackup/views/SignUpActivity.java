@@ -60,7 +60,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        setStatusBarColor(ConfigUtil.COLOR_PRIMARY_DARK);
+        setStatusBarColor(R.color.colorPrimaryDark);
 
         editName = (EditText) findViewById(R.id.editName);
         editEmail = (EditText) findViewById(R.id.editEmail);
@@ -68,8 +68,8 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
         signUp = (Button) findViewById(R.id.signUp);
         scrollView = findViewById(R.id.scrollView);
 
-        scrollView.setBackgroundColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
-        signUp.setTextColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
+        scrollView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        signUp.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
         ImageView logo = findViewById(R.id.logo);
         logo.setImageResource(ConfigUtil.LOGO);
