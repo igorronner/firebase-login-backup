@@ -3,6 +3,7 @@ package com.igorronner.irloginbackup.init;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -159,7 +160,7 @@ public class IRLoginBackup {
     }
 
 
-    public static boolean isLogged(Activity context){
+    public static boolean isLogged(Context context){
         return MainPreference.isLogged(context);
     }
 

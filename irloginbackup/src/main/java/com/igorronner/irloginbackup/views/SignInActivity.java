@@ -64,7 +64,7 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setStatusBarColor(ConfigUtil.COLOR_PRIMARY_DARK);
+        setStatusBarColor(R.color.colorPrimaryDark);
 
         editEmail = (EditText) findViewById(R.id.editEmail);
         editPassword = (EditText) findViewById(R.id.editPassword);
@@ -83,8 +83,8 @@ public class SignInActivity extends BaseActivity implements GoogleApiClient.OnCo
         else
             logo.setVisibility(View.GONE);
 
-        scrollView.setBackgroundColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
-        signIn.setTextColor(ContextCompat.getColor(this, ConfigUtil.COLOR_PRIMARY));
+        scrollView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        signIn.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
