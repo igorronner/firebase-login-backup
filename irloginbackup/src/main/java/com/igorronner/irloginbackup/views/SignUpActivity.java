@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.igorronner.irloginbackup.R;
 import com.igorronner.irloginbackup.init.ConfigUtil;
+import com.igorronner.irloginbackup.init.IRLoginBackup;
 import com.igorronner.irloginbackup.models.FirebaseBackup;
 import com.igorronner.irloginbackup.models.FirebaseUser;
 import com.igorronner.irloginbackup.preferences.MainPreference;
@@ -70,6 +71,10 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
 
         scrollView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
         signUp.setTextColor(ContextCompat.getColor(this, R.color.colorPrimary));
+
+        if (!MainPreference.alreadyShownTutorialBackup(this)){
+            IRLoginBackup.showTutorialBackup(this);
+        }
 
         ImageView logo = findViewById(R.id.logo);
         logo.setImageResource(ConfigUtil.LOGO);
