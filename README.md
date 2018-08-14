@@ -40,12 +40,15 @@ dependencies {
 ```java
   IRLoginBackup.openSignUp(activity);
 ```
+<img src="/prints/device-2018-05-11-173553.png" alt="test image size" height="40%" width="40%">
+
 
 **Open SignIn:**
 
 ```java
   IRLoginBackup.openSigIn(activity);
 ```
+<img src="/prints/device-2018-05-11-173728.png" alt="test image size" height="40%" width="40%">
 
 **Check logged:**
 
