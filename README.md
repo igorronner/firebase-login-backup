@@ -2,6 +2,8 @@
 
 > Toolkit for building a onboarding quickly with Firebase plus backup solution.
 
+Getting Started
+--------
 ```java
 IRLoginBackup.startInit("Database-Name-Here", getResources().getString(R.string.default_web_client_id))
                 .setLogo(R.drawable.logo)
@@ -32,3 +34,41 @@ dependencies {
   implementation 'com.github.igorronner:firebase-login-backup:0.0.9.7'
 }
 ```
+
+**Open SignUp:**
+
+```java
+  IRLoginBackup.openSignUp(activity);
+```
+
+**Open SignIn:**
+
+```java
+  IRLoginBackup.openSigIn(activity);
+```
+
+**Check logged:**
+
+```java
+  IRLoginBackup.isLogged(context);
+```
+
+
+**Logout Dialog:**
+
+```java
+  IRLoginBackup.logoutDialog(..);
+```
+
+**Backup DB:**
+
+```java
+  IRLoginBackup.backup(activity);
+```
+
+**Open Restore backup:**
+
+```java
+  IRLoginBackup.openRestoreBackup(activity);
+```
+
